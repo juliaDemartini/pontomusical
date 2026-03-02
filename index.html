@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="fs-cadastro-usuario.css"> <!-- use seu CSS atual -->
+</head>
+<body>
+
+<div class="container">
+    <div class="form-container">
+        <h1>Cadastro de Usuário</h1>
+
+        <form action="processa_cadastro_usuario.php" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome Completo</label><br>
+                <input type="text" id="nome" name="nome" required>
+            </div><br>
+
+            <div class="form-group">
+                <label for="email">E-mail</label><br>
+                <input type="email" id="email" name="email" required>
+            </div><br>
+
+            <div class="form-group">
+                <label for="senha">Senha</label><br>
+                <input type="password" id="senha" name="senha" required>
+            </div><br>
+
+            <div class="form-group">
+                <label for="confirmar_senha">Confirmar Senha</label><br>
+                <input type="password" id="confirmar_senha" name="confirmar_senha" required>
+            </div><br>
+
+            <button type="submit" class="butn" name="submit">Criar Conta</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

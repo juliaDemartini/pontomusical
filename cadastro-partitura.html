@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/beca1.png" type="image/x-icon">         
+	 <link rel="stylesheet" href="fs-cadastro-partitura.css">
+	<title>CADASTRO DE TCC'S</title>
+    </head>
+	
+    <body>
+	 <div id="menu">
+  <div id="menu-bar" onclick="menuOnClick()">
+    <div id="bar1" class="bar"></div>
+    <div id="bar2" class="bar"></div>
+    <div id="bar3" class="bar"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <ul>
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Meu Perfil</a></li>
+      <li><a href="#">Partituras</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+  </nav> 
+</div>
+
+<div class="menu-bg" id="menu-bg"></div>
+
+<div class="container">
+    <div class="left-container">
+    <div class="form-container">
+    <h1>Cadastro Partitura</h1>
+       
+            <div class="form-group">
+                <label for="titulo">Titulo</label>
+				<br>
+                <input type="text" class="form-control" id="titulo" name="titulo" required>
+            </div>
+			<br>
+            <div class="form-group">
+                <label for="autor">Compositor</label>
+				<br>
+                <input type="autor" class="form-control" id="autor" name="autor" required>
+            </div>
+			<br>
+            <div class="form-group">
+                <label for="resumo">Descrição</label>
+                <input type="text" class="form-control" id="descricao" name="descricao" required>
+            </div>
+			<br>
+            <div class="form-group">
+    <label for="curso">Genero</label>
+    <input type="text" class="form-control" id="curso" name="curso" required>
+</div>
+<br>
+ <div class="form-group">
+    <label for="data_publicacao">Data de Publicação</label>
+    <input type="date" class="form-control" id="data_publicacao" name="data_publicacao" required>
+</div>          
+<br>
+	
+ <button type="submit" class="butn" name="submit">Cadastrar TCC</button> 
+ </form>
+ </div>
+ </div>
+ 
+ <div class="right-container">
+ <div class="uploadcontainer">
+ <center>
+    <h2>Upload de Arquivos</h2>
+</center>
+        <div class="file-upload">
+            <label for="fileInput">Escolher Arquivo</label>
+            <input type="file" id="fileInput" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png" />
+        </div>
+        <div id="fileList">
+            <p>Nenhum arquivo selecionado</p>
+        </div>
+        
+            <button class="butn" id="uploadButton">Enviar Arquivo</button>
+			<br>
+		</div>
+		<br>
+		<br>
+		<br>
+		
+		
+		<div class="uploadcontainer">
+      <center>
+    <h2> Arquivos</h2>
+	</center>
+            <button class="butn" id="aqsalvos">Arquivos Salvos</button>
+			<br>
+            <button  class="butn" id="editarsalvos">TCC's Salvos</button>
+		</div>
+		<br><br><br>
+
+ <script src="fs-menu.js"></script>
+</body>
+</html>
