@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Enviar Partitura</title>
+   <link rel="stylesheet" href="css/upload.css" />
+</head>
+<body>
+ 
+  <form id="uploadForm">
+     <h1>Enviar Partitura</h1>
+    <input type="text" id="nome" placeholder="Nome da partitura" required />      <br/><br/>
+    
+    <select id="instrumento" required>
+      <option value="">Selecione o instrumento</option>
+      <!-- Esses valores podem ser puxados do banco futuramente -->
+      <option value="Violão">Violão</option>
+      <option value="Piano">Piano</option>
+      <option value="Flauta">Flauta</option>
+    </select><br /><br />
+
+    <input type="file" id="arquivo" accept=".pdf,image/*" required /><br /><br />
+    <button type="submit">Enviar</button>
+  </form>
+
+  <p id="status"></p>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js"></script>
+  
+  <script type="module" src="/js/upload.js"></script>
+</body>
+</html>

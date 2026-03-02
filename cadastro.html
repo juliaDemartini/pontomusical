@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="https://cdn.glitch.global/a73b0910-38af-4f4e-ae74-21decae782bc/Ativo9.svg?v=1751547050956" />
+  <link rel="stylesheet" href="/css/cadastro.css" />
+  <title>Cadastro de Músico</title>   
+</head>
+<body>
+
+  <div class="container">
+    <div class="form-container">
+      <h1>Cadastro de Músico</h1>
+
+      <div class="form-group">
+        <label for="tfConta">E-mail:</label>
+        <input type="email" id="tfConta" placeholder="Digite o e-mail" />
+      </div>
+
+      <div class="form-group">
+        <label for="tfSenha">Senha:</label>
+        <input type="password" id="tfSenha" placeholder="Digite a senha" />
+      </div>
+
+      <div class="form-group">
+        <label for="tfReplay">Repita a Senha:</label>
+        <input type="password" id="tfReplay" placeholder="Repita a senha" />
+      </div>
+
+      <div id="message"></div>
+
+      <div id="recaptcha-container"></div>
+
+      <button class="butn" id="btNovaConta">Criar Conta</button>
+      <button id="btCancelar">Voltar</button>
+    
+
+    </div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js"></script>
+
+  <!-- Seu Controller -->
+  <script type="module" src="../js/controller/CtrlMusico.js"></script>
+</body>
+</html>

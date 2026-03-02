@@ -1,42 +1,55 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Usuário</title>
-    <link rel="stylesheet" href="fs-cadastro-usuario.css"> <!-- use seu CSS atual -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ponto Musical</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #2c3e50, #3498db);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+
+    .btn-login {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1.1em;
+      background-color: #ffffff;
+      color: #2c3e50;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-login:hover {
+      background-color: #ecf0f1;
+    }
+  </style>
 </head>
 <body>
-
-<div class="container">
-    <div class="form-container">
-        <h1>Cadastro de Usuário</h1>
-
-        <form action="processa_cadastro_usuario.php" method="POST">
-            <div class="form-group">
-                <label for="nome">Nome Completo</label><br>
-                <input type="text" id="nome" name="nome" required>
-            </div><br>
-
-            <div class="form-group">
-                <label for="email">E-mail</label><br>
-                <input type="email" id="email" name="email" required>
-            </div><br>
-
-            <div class="form-group">
-                <label for="senha">Senha</label><br>
-                <input type="password" id="senha" name="senha" required>
-            </div><br>
-
-            <div class="form-group">
-                <label for="confirmar_senha">Confirmar Senha</label><br>
-                <input type="password" id="confirmar_senha" name="confirmar_senha" required>
-            </div><br>
-
-            <button type="submit" class="butn" name="submit">Criar Conta</button>
-        </form>
-    </div>
-</div>
-
+  <div class="container">
+    <h1>Bem-vindo ao Ponto Musical 🎵</h1>
+    <p>Seu novo site está no ar com Firebase Hosting!</p>
+    <a href="login.html" class="btn-login">Entrar</a>
+  </div>
 </body>
 </html>
