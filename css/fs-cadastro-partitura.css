@@ -1,0 +1,255 @@
+body {
+            font-family: "Poppins", sans-serif;
+            //background-color: fafafa;
+            }
+            
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+		
+		.container {
+		background: white;
+		display: flex;
+		align-items: center;
+		margin-top: 5%;
+		}
+		
+		.left-container{
+		width: 100%;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+		}
+		
+		.form-container{
+	   width: 60%;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  flex-direction: column;
+	   padding: 50px 50px;
+	  background: white;
+	  border-radius: 20px;
+	  box-shadow: 0px 10px 50px #00000056;
+		}
+		
+	.form-group {
+	  width: 100%;
+	  border-radius: 10px;
+	  padding:15px;
+	  background: #6495ED;
+	  color: white;
+	  font-size: 12pt;
+	  box-shadow: 5px 0px 40px #00000056;
+	  outline: none;
+	  box-sizing: border-box;}
+	  
+	 .form-group > input{
+	  color: black;
+	  background-color: transparent;
+	  border: none;
+	  border-bottom: 1px solid white;
+	  outline: none;
+	  width:100%;
+	  }
+	  
+	 .form-groupchave{
+	  width: 95%;
+	  border-radius: 10px;
+	  padding:15px;
+	  background: #6495ED;
+	  color: white;
+	  font-size: 12pt;
+	  box-shadow: 5px 0px 40px #00000056;
+	  outline: none;
+	  }
+	  
+	  .form-groupchave > input{
+	  color: black;
+	  outline: none;
+	  }
+	  
+		.right-container{			
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  flex-direction: column;
+	  margin-right: 5%;
+		}
+		
+		.uploadcontainer { 
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  flex-direction: column;
+	  padding: 30px 45px;
+	  background: white;
+	  border-radius: 20px;
+	  box-shadow: 0px 10px 50px #00000056;
+		}
+        
+		
+		#menu {
+  z-index: 2;
+}
+
+#menu-bar {
+  width: 45px;
+  height: 40px;
+  margin: 30px 0 20px 20px;
+  cursor: pointer;
+}
+
+.bar {
+  height: 5px;
+  width: 100%;
+  background-color: blue;
+  display: block;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+#bar1 {
+  transform: translateY(-4px);
+}
+
+#bar3 {
+  transform: translateY(4px);
+}
+
+.nav {
+  transition: 0.3s ease;
+  display: none;
+}
+
+.nav ul {
+  padding: 0 22px;
+}
+
+.nav li {
+  list-style: none;
+  padding: 12px 0;
+}
+
+.nav li a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.nav li a:hover {
+  font-weight: bold;
+}
+
+.menu-bg, #menu {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.menu-bg {
+  z-index: 1;
+  width: 0;
+  height: 0;
+  margin: 30px 0 20px 20px;
+  background: radial-gradient(circle, #add8e6, blue);
+  border-radius: 50%;
+  transition: 0.3s ease;
+}
+
+.change {
+  display: block;
+}
+
+.change .bar {
+  background-color: white;
+}
+
+.change #bar1 {
+  transform: translateY(4px) rotateZ(-45deg);
+}
+
+.change #bar2 {
+  opacity: 0;
+}
+
+.change #bar3 {
+  transform: translateY(-6px) rotateZ(45deg);
+}
+
+.change-bg {
+  width: 520px;
+  height: 460px;
+  transform: translate(-60%,-30%);
+}
+
+.ml-auto2{
+	display: none;
+	}
+
+        .file-upload {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .file-upload input[type="file"] {
+            display: none;
+        }
+        .file-upload label {
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .file-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .butn {
+	   width : 90%;
+	   padding: 10px 5px;
+	   margin: 15px;
+	   border: none;
+	   border-radius: 8px;
+       outline: none;
+	   text-transform: uppercase;
+	   font-weight: 800;
+	   letter-spacing: 3px;
+	   color:white;
+	   background: #00008B;
+	   cursor: pointer;
+	   box-shadow: 0px 10px 40px #00000056;
+	   justify-content: center;
+	  }
+	  
+	  @media screen and (max-width: 1020px) {
+	 
+	 .container {
+	    flex-direction: column-reverse;
+	 }	
+	 
+	 .form-groupchave  > input {
+	    width: 90%;
+		padding: 7px;
+	 }
+	 
+  .ml-auto{
+  display: none;
+}
+.ml-auto2{
+  display: block;
+}
+
+.logo2 {
+   display: block;
+   }
+
+.container {
+   width: 100%;
+            }
+}
