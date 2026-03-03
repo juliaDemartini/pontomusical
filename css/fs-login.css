@@ -44,7 +44,6 @@
 	  /* imagem esquerda*/
 	  .logo{
 	    width:95%;;
-  filter: drop-shadow(10px 10px 10px rgba(90,90,90, 0.7));
 }
 
 	 .left-mobile {
@@ -365,5 +364,6 @@
 	margin-top: 20%;  
 	  
   }
+
 
 }
