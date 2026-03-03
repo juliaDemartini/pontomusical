@@ -202,7 +202,22 @@ footer {
             overflow: hidden;
         }
 
-        
+.carousel {
+    overflow: hidden; /* Esconde as imagens que estão fora da tela */
+    position: relative;
+    width: 100%; /* Ou o tamanho desejado do seu banner */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Cria o efeito de deslize suave */
+    width: 100%;
+}
+
+.slides img {
+    width: 100%; /* Garante que cada imagem ocupe 100% da largura do container */
+    flex-shrink: 0;
+}        
        
 
 @media screen and (max-width: 1020px) {
@@ -220,4 +235,5 @@ footer {
 .container {
    width: 100%;
             }
+
 }
