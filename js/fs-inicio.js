@@ -1,78 +1,58 @@
-// --- CONFIGURAÇÃO DO CARROSSEL ---
-let currentIndex = 0;
-const slides = document.getElementById('slides');
-const totalSlides = document.querySelectorAll('#slides img').length;
-let autoPlayInterval;
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
+import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
 
-// Função para mudar o slide (direção: 1 para frente, -1 para trás)
-function moveSlide(direction) {
-    currentIndex += direction;
+// --- CONFIGURAÇÃO FIREBASE ---
+const auth = getAuth();
+const db = getDatabase();
 
-    // Lógica de loop infinito: da última volta para a primeira e vice-versa
-    if (currentIndex < 0) {
-        currentIndex = totalSlides - 1;
-    } else if (currentIndex >= totalSlides) {
-        currentIndex = 0;
+// 1. Verificação de Login e Nível de Acesso (Admin ou Músico)
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    const uid = user.uid;
+    try {
+      // Busca o papel (role) do usuário no Banco de Dados
+      const roleSnap = await get(ref(db, `users/${uid}/role`));
+      const role = roleSnap.val();
+
+      if (!role) {
+        alert("Erro: usuário sem permissão definida. Contate o administrador.");
+        await signOut(auth);
+        window.location.href = "login.html";
+        return;
+      }
+
+      // Mostra o card de cadastro APENAS se for administrador
+      const adminCard = document.getElementById("cardCadastroUsuario");
+      if (adminCard) {
+        adminCard.style.display = (role === "admin") ? "block" : "none";
+      }
+
+    } catch (error) {
+      console.error("Erro ao buscar permissões:", error);
+      alert("Erro ao carregar dados do usuário.");
     }
+  } else {
+    // Se não houver usuário logado, redireciona para a tela de login
+    window.location.href = "login.html";
+  }
+});
 
-    updateSlidePosition();
-    resetAutoPlay(); // Reinicia o cronômetro para evitar pulos bruscos
-}
-
-// Atualiza a posição visual no CSS
-function updateSlidePosition() {
-    if (slides) {
-        const offset = currentIndex * 100;
-        slides.style.transform = `translateX(-${offset}%)`;
-    }
-}
-
-// Gerenciamento do Auto-Play (5 segundos)
-function startAutoPlay() {
-    autoPlayInterval = setInterval(() => {
-        moveSlide(1);
-    }, 5000);
-}
-
-function resetAutoPlay() {
-    clearInterval(autoPlayInterval);
-    startAutoPlay();
-}
-
-// Inicia o carrossel assim que a página carrega
-startAutoPlay();
-
-
-// --- MENU HAMBÚRGUER ---
-function menuOnClick() {
-    const menuBar = document.getElementById("menu-bar");
-    const nav = document.getElementById("nav");
-    const menuBg = document.getElementById("menu-bg");
-
-    if (menuBar && nav && menuBg) {
-        menuBar.classList.toggle("change");
-        nav.classList.toggle("change");
-        menuBg.classList.toggle("change-bg");
-    }
-}
-
-
-// --- REDIRECIONAMENTOS DE BOTÕES ---
-// Mapeamento de IDs e seus respectivos links para evitar código repetitivo
-const links = {
-    "direcionar01": "sobre.php",
-    "direcionar02": "solicitacoes.php",
-    "direcionar04": "listarProjRepro.php",
-    "direcionar05": "gerenciarUsuarios.php",
-    "logoutBtn": "logout.php" // Exemplo caso queira adicionar o logout aqui
-};
-
-// Aplica o evento de clique automaticamente para todos os IDs acima
-Object.keys(links).forEach(id => {
-    const element = document.getElementById(id);
-    if (element) {
-        element.addEventListener("click", () => {
-            window.location.href = links[id];
+// 2. Lógica do Botão de Logout
+// Usamos o DOMContentLoaded para garantir que o botão já existe na tela quando o script rodar
+document.addEventListener('DOMContentLoaded', () => {
+    const logoutBtn = document.getElementById("logoutBtn");
+    
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", async () => {
+            try {
+                await signOut(auth);
+                // Redireciona para index.html (isso fará o carrossel resetar para a img 1)
+                window.location.href = "index.html";
+            } catch (error) {
+                console.error("Erro ao deslogar:", error);
+            }
         });
     }
 });
+
+  

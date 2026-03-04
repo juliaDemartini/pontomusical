@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  padding-top: 60px;
 }
 
 #logoutBtn {
@@ -101,53 +102,50 @@ body {
   font-size: 16px;
 }
 
-/* Card Grande (Carrossel Otimizado) */
+/* Container que segura tudo e dá o "respiro" nas laterais */
 .card.gran {
-  width: 90%;
-  max-width: 1000px; /* Limite para não esticar demais em telas ultra-wide */
-  margin: 20px auto;
-  border-radius: 20px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  background-color: #000; /* Fundo preto evita flashes brancos entre transições */
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto; /* Espaço (respiro) entre o buscador e o carrossel */
+    border-radius: 20px;
+    overflow: hidden; /* IMPORTANTE: Corta o que estiver fora do polígono */
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    background-color: #000;
 }
 
 .carousel {
-  width: 100%;
-  display: flex;
-  align-items: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Garante que as imagens não vazem */
 }
 
 .slides {
-  display: flex;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  width: 100%;
+    display: flex;
+    width: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .slides img {
-  width: 100%;
-  flex-shrink: 0; /* Impede que a imagem diminua */
-  height: auto;   /* Mantém a proporção real da imagem */
-  display: block;
+    width: 100%;
+    flex: 0 0 100%; /* Força a imagem a ocupar 100% do container, nem mais nem menos */
+    height: 400px;   /* Altura fixa para manter o padrão, ou use auto */
+    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
 }
 
-/* Botões de navegação melhorados */
+/* Ajuste dos botões para ficarem visíveis sobre a imagem */
 .prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(5px);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  cursor: pointer;
-  font-size: 20px;
-  z-index: 10;
-  transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .prev:hover, .next:hover {

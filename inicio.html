@@ -21,8 +21,8 @@
         <nav class="nav" id="nav">
             <ul>
                 <li><a href="inicio.html">Início</a></li>
-                <li><a href="Perfil.html">Meu Perfil</a></li>
-                <li><a href="Partitura.html">Partitura</a></li>
+                <li><a href="perfil.html">Meu Perfil</a></li>
+                <li><a href="partituras.html">Partitura</a></li>
                 <li><a href="#">Contato</a></li>
             </ul>
         </nav>
@@ -31,8 +31,6 @@
 
     <!-- Logo e Logout -->
     <div class="collapse navbar-collapse" id="navbarNav">
-        <img src="https://cdn.glitch.global/a73b0910-38af-4f4e-ae74-21decae782bc/Ativo12.svg?v=1751550284215"
-            alt="Logo do Site" class="logo">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <button id="logoutBtn">Logout <i class="fa-solid fa-arrow-right"></i></button>
@@ -52,55 +50,42 @@
     </div>
 
     <!-- Slides -->
-    <div class="gran" id="direcionar">
-        <div class="carousel">
-            <div class="slides" id="slides">
-                <img src="img/4.png"
-                    alt="Imagem 1">
-                <img src="img/5.png"
-                    alt="Imagem 2">
-                <img src="img/6.png"
-                    alt="Imagem 3">
-            </div>
-            <button class="prev" onclick="moveSlide(-1)">❮</button>
-            <button class="next" onclick="moveSlide(1)">❯</button>
+    <div class="gran">
+    <div class="carousel">
+        <div class="slides" id="slides">
+            <img src="img/4.png" alt="1">
+            <img src="img/5.png" alt="2">
+            <img src="img/6.png" alt="3">
         </div>
+        <button class="prev" onclick="moveSlide(-1)">❮</button>
+        <button class="next" onclick="moveSlide(1)">❯</button>
     </div>
+</div>
 
     <!-- Cartões -->
     <div class="cards-pequenos">
         <div class="card soli" id="direcionar1" onclick="window.location.href='upload.html'">
             <h2>Upload</h2>
             <p>Cadastre sua partitura</p>
-            <img class="image"
-                src="https://cdn.glitch.global/a73b0910-38af-4f4e-ae74-21decae782bc/upload.png?v=1751588825910"
-                alt="upload" />
         </div>
 
-        <div class="card visu" id="direcionar02" onclick="window.location.href='visualizar.html'">
+        <div class="card visu" id="direcionar02" onclick="window.location.href='partituras.html'">
             <h2>Visualizar</h2>
             <p>Verifique outras partituras disponíveis</p>
-            <img class="image"
-                src="https://cdn.glitch.global/a73b0910-38af-4f4e-ae74-21decae782bc/visible.png?v=1751590738670"
-                alt="visualizar" />
         </div>
 
         <div class="card pesquisa" id="direcionar03">
             <h2>Pesquisar</h2>
             <p>Busque por outras partituras</p>
             <img class="image"
-                src="https://cdn.glitch.global/a73b0910-38af-4f4e-ae74-21decae782bc/search.png?v=1751589274282"
-                alt="pesquisar" />
         </div>
+
         <div id="cardCadastroUsuario" class="admin-card" onclick="window.location.href='AdminCadastro.html'"
             style="display: none;">
             <h3>Cadastrar Usuário</h3>
             <p>Adicionar novos usuários (admin ou músico)</p>
-            <img class="image"
-                src="https://cdn.glitch.global/a73b0910-38af-4f4e-ae74-21decae782bc/search.png?v=1751589274282"
-                alt="cadastrar" />
         </div>
-
+    </div>
         <!-- Rodapé -->
         <footer>
             <div class="container">
@@ -108,10 +93,33 @@
                 <p>Entre em contato: pontomusical@gmail.com | (11) 1234-5678</p>
             </div>
         </footer>
+        <script>
+            function menuOnClick() {
+        const menuBar = document.getElementById("menu-bar");
+        const nav = document.getElementById("nav");
+        const menuBg = document.getElementById("menu-bg");
 
-        <script src="/js/CtrlMusico.js"></script>
-        <script type="module" src="/js/logout.js"></script>
-        <script type="module" src="/js/inicio.js"></script>
+        if (menuBar && nav && menuBg) {
+            // Alterna as classes que fazem a animação e mostram o menu
+            menuBar.classList.toggle("change");
+            nav.classList.toggle("change");
+            menuBg.classList.toggle("change-bg");
+            console.log("Menu clicado!"); // Isso ajuda a testar no F12
+        } else {
+            console.error("Erro: Algum elemento do menu não foi encontrado.");
+        }
+    }
+        let currentIndex = 0;
+            function moveSlide(direction) {
+                const slides = document.getElementById('slides');
+                const totalSlides = slides.children.length;
+                currentIndex += direction;
+                if (currentIndex < 0) currentIndex = totalSlides - 1;
+                else if (currentIndex >= totalSlides) currentIndex = 0;
+                slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+        </script>
+        <script type="module" src="js/fs-inicio.js"></script>
 
 </body>
 
